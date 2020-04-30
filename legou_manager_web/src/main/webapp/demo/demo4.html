@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
+
+    <script type="text/javascript">
+        // 定义了oneApp的模块
+        var oneApp = angular.module("oneApp",[]);
+        // 定义控制器
+        oneApp.controller("mycontroller",function($scope){
+
+            // 定义add方法
+            $scope.add = function(){
+                // alert("add");
+                // 计算x+y的值
+                $scope.t = parseInt($scope.x) + parseInt($scope.y);
+            }
+
+        });
+
+    </script>
+
+</head>
+
+<body ng-app="oneApp" ng-controller="mycontroller">
+
+x:<input type="text" ng-model="x" />
+
++
+
+y:<input type="text" ng-model="y" />
+
+<input type="button" value="等于" ng-click="add()"/>
+
+{{t}}
+
+</body>
+
+</html>

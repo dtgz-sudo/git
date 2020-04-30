@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据遍历</title>
+
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
+
+    <script type="text/javascript">
+        // 定义了oneApp的模块
+        var oneApp = angular.module("oneApp",[]);
+        // 定义控制器
+        oneApp.controller("mycontroller",function($scope){
+            // 定义数组
+            $scope.ids = [1,2,3];
+
+            // 定义数组，存储的是json的数据
+            $scope.list = [{"name":"张三","age":10},{"name":"赵四","age":20},{"name":"王五","age":30}];
+
+        });
+
+    </script>
+
+</head>
+
+<body ng-app="oneApp" ng-controller="mycontroller">
+
+<!--遍历ids数组-->
+<div ng-repeat="id in ids">
+    {{id}}
+</div>
+
+<hr/>
+
+<!--
+    u = {"name":"张三","age":10}
+-->
+<div ng-repeat="u in list">
+    {{u.name}} -- {{u.age}}
+</div>
+
+</body>
+
+</html>

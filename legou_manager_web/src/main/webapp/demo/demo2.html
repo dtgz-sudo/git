@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MVC和双向绑定</title>
+
+    <!--
+        引入js文件
+        快捷方式：按住鼠标左键拖动过来就OK
+    -->
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
+
+    <script type="text/javascript">
+        // 编写js的函数
+        // 声明成控制器，，向$scope域中存入数据
+        function myshow($scope){
+            // 使用$scope对象
+            $scope.username = "ddd";
+        }
+
+    </script>
+
+</head>
+
+<body ng-app ng-controller="myshow">
+
+<!--
+    使用ng-model指令
+    ng-model="name" 把名称为name的文本框存入到$scope域对象中
+
+    ng-model="username" $scope域对象已经存在了，会从$scope域中来取值，显示到文本框上。
+-->
+<input type="text" ng-model="username" />
+
+<!--从$scope域中获取到属性的值-->
+{{username}}
+
+</body>
+</html>

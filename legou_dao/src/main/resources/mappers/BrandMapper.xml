@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.tx.mapper.BrandMapper">
+
+    <!--查询所有数据 spring 配置文件里面已经配置的别名 -->
+    <select id="findAll" resultType="cn.tx.domain.Brand">
+        select * from tb_brand
+    </select>
+    <insert id="save">
+
+        insert into tb_brand (name,first_char) values(#{name},#{firstChar})
+    </insert>
+    <!--查询所有数据 spring 配置文件里面已经配置的别名 -->
+    <select id="findOne" parameterType="long" resultType="cn.tx.domain.Brand">
+        select * from tb_brand where id = #{id}
+    </select>
+    <update id="update" parameterType="cn.tx.domain.Brand">
+        update  tb_brand set name = #{name }, first_char=#{firstChar} where id = #{id}
+    </update>
+    <delete id="delete" parameterType="long">
+        delete from tb_brand where id = #{id}
+    </delete>
+</mapper>

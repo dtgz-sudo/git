@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内置服务</title>
+
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
+
+    <script type="text/javascript">
+        // 定义了oneApp的模块
+        var oneApp = angular.module("oneApp",[]);
+        // 定义控制器
+        oneApp.controller("mycontroller",function($scope,$http){
+            // 编写方法
+            $scope.findAll = function () {
+                // 发送异步的请求  resp表示服务器端响应回来的数据
+                $http.get("../brand/findAll").success(function (resp) {
+                    // resp响应是什么格式的数据 resp = [{},{}]
+                    $scope.list = resp;
+                })
+
+                // 发送post请求
+                // $http.post("请求路径","请求参数",[可选]).success(function () {})
+            }
+        });
+
+    </script>
+
+</head>
+
+<body ng-app="oneApp" ng-controller="mycontroller" ng-init="findAll()">
+
+<!--数据的遍历-->
+<div ng-repeat="brand in list">
+    {{brand.name}}
+</div>
+
+</body>
+
+</html>

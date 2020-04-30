@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MVC和双向绑定</title>
+
+    <script type="text/javascript" src="../plugins/angularjs/angular.min.js"></script>
+
+    <script type="text/javascript">
+        // 编写js的代码
+        // angular.module("模块名称","空的数组");
+
+        // 定义了oneApp的模块
+        var oneApp = angular.module("oneApp",[]);
+
+        // 定义控制器
+        oneApp.controller("mycontroller",function($scope){
+
+            // 声明属性
+            $scope.age = 100;
+
+            // 定义添加方法
+            $scope.add = function () {
+                alert("add...");
+            }
+
+            // 定义修改方法
+            $scope.update = function () {
+                alert("update...");
+            }
+
+        });
+
+    </script>
+
+</head>
+
+<!--
+    ng-init="add()" 页面加载后，调用add()方法
+    ng-init="msg='aaaaa'"   初始化属性的值
+    ng-init="add();update()"    按编写的顺序执行add和update方法
+-->
+<body ng-app="oneApp" ng-controller="mycontroller" ng-init="add();update()">
+
+<!--获取到age属性的值-->
+{{age}}
+
+{{msg}}
+
+</body>
+
+</html>
